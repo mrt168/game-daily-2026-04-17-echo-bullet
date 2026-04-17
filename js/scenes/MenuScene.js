@@ -13,10 +13,11 @@ class MenuScene extends Phaser.Scene {
     // Logo
     if (this.textures.exists('logo')) {
       const logo = this.add.image(width / 2, height / 2 - 120, 'logo');
-      logo.setScale(0.8);
+      const lScale = Math.min(500 / logo.width, 180 / logo.height);
+      logo.setScale(lScale);
       this.tweens.add({
         targets: logo,
-        scale: { from: 0.8, to: 0.9 },
+        scale: { from: lScale, to: lScale * 1.05 },
         duration: 1500,
         yoyo: true,
         repeat: -1,

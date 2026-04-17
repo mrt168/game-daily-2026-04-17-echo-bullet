@@ -24,11 +24,12 @@ class GameScene extends Phaser.Scene {
     this.bullets = this.physics.add.group();
 
     // Player turret at bottom center
-    this.turret = this.add.image(width / 2, height - 50, this.textures.exists('player') ? 'player' : undefined);
     if (!this.textures.exists('player')) {
       this.turret = this.add.circle(width / 2, height - 50, 25, CONSTANTS.COLORS.CYAN);
     } else {
-      this.turret.setScale(0.5);
+      this.turret = this.add.image(width / 2, height - 50, 'player');
+      const tScale = Math.min(64 / this.turret.width, 64 / this.turret.height);
+      this.turret.setScale(tScale);
     }
 
     // Aim line
@@ -149,16 +150,17 @@ class GameScene extends Phaser.Scene {
     let enemy;
     if (this.textures.exists(key)) {
       enemy = this.physics.add.image(x, y, key);
-      enemy.setScale(0.45);
+      const eScale = Math.min(48 / enemy.width, 48 / enemy.height);
+      enemy.setScale(eScale);
     } else {
       enemy = this.physics.add.image(x, y, 'bullet');
       enemy.setTintFill(CONSTANTS.COLORS.MAGENTA);
-      enemy.setScale(1.5);
+      enemy.setScale(0.5);
     }
 
     enemy.setImmovable(true);
-    enemy.body.setCircle(Math.max(16, enemy.displayWidth / 2.4));
-    enemy.body.setOffset((enemy.width - enemy.body.radius * 2) / 2, (enemy.height - enemy.body.radius * 2) / 2);
+    const bodyRadius = Math.max(12, enemy.displayWidth / 2.4);
+    enemy.body.setCircle(bodyRadius, (enemy.width - bodyRadius * 2) / 2, (enemy.height - bodyRadius * 2) / 2);
     enemy.setData('type', key);
     this.enemies.add(enemy);
 
@@ -181,16 +183,18 @@ class GameScene extends Phaser.Scene {
     let bullet;
     if (this.textures.exists('bullet')) {
       bullet = this.physics.add.image(this.turret.x, this.turret.y - 20, 'bullet');
-      bullet.setScale(0.5);
+      const bScale = Math.min(24 / bullet.width, 24 / bullet.height);
+      bullet.setScale(bScale);
     } else {
       bullet = this.physics.add.image(this.turret.x, this.turret.y - 20, 'icon');
       bullet.setTintFill(CONSTANTS.COLORS.CYAN);
-      bullet.setScale(0.08);
+      bullet.setScale(0.05);
     }
 
     bullet.reflectCount = 0;
     bullet.isBullet = true;
-    bullet.setCircle(10);
+    const br = 8;
+    bullet.body.setCircle(br, (bullet.width - br * 2) / 2, (bullet.height - br * 2) / 2);
     bullet.setCollideWorldBounds(true);
     bullet.body.onWorldBounds = true;
     bullet.setBounce(1, 1);
