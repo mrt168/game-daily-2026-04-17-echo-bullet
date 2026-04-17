@@ -1,0 +1,19 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: #0A0A1F;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+}
+#game {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas { touch-action: none; }
