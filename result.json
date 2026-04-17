@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-17",
+  "gameName": "echo-bullet",
+  "displayName": "エコーバレット",
+  "displayNameEn": "ECHO BULLET",
+  "genre": "跳弾リフレクションシューター",
+  "conceptTags": ["reflection", "shooter", "time-attack", "chain-explosion", "one-shot"],
+  "competeWinner": "Claude",
+  "competeVotes": 2,
+  "competeProposals": {
+    "Gemini": "タワースタッカー（落下ブロック積み）",
+    "Codex": "重力スシスイッチ（重力切替パズル）",
+    "Claude": "エコーバレット（跳弾シューター）"
+  },
+  "urls": {
+    "play": "https://mrt168.github.io/game-daily-2026-04-17-echo-bullet/",
+    "github": "https://github.com/mrt168/game-daily-2026-04-17-echo-bullet",
+    "spreadsheet": "https://docs.google.com/spreadsheets/d/1n4nf-AycsITMo-ObiT3uX8jHsehmLdHi18e0dAgy1PA/edit",
+    "slides": "https://docs.google.com/presentation/d/1kGuY36GW-VGX2MeRvj_SUWcqy87rbtnmBv_6MjvY6Ng/edit"
+  },
+  "techStack": ["Phaser 3.70", "Vanilla JavaScript", "HTML5 Canvas", "Web Audio API", "localStorage"],
+  "assetGen": "Gemini gemini-3.1-flash-image-preview (Nano Banana 2)",
+  "hosting": "GitHub Pages",
+  "grillCouncilTop3": [
+    "ハイスコア自動録画 + SNSシェアボタン連動",
+    "開始5秒で楽しさを伝えるシンプルチュートリアル",
+    "日替わりチャレンジ・フレンド間ランキング"
+  ],
+  "gameElements": [
+    "反射マルチプライヤー（反射数×0.5）",
+    "連鎖マルチプライヤー（連鎖数×0.3）",
+    "パーフェクトリフレクション（+5000点）",
+    "可変ウェーブ（L字・十字・斜め）",
+    "Twitter連携スコア共有",
+    "チュートリアル4ステップ（日本語）",
+    "30秒タイムアタック"
+  ],
+  "videoDurationSec": 43.595,
+  "slackChannel": "C0ANA4A9SMR",
+  "slackMessageTs": "1776400789.664839",
+  "slackFileId": "F0ATF5D3GSZ"
+}
